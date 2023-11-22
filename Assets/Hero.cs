@@ -39,8 +39,6 @@ public class Hero : MonoBehaviour
 	 }
 	public void FaceEnemy()
 	{
-		//RaycastHit[] hits;
-
 
 		if (myColliderCheckScript.enemyObjects.Count > 0)
 		{
@@ -56,50 +54,32 @@ public class Hero : MonoBehaviour
 
 			if (timer > shootDelay)
 			{
-				
-				enemyHealthScript = enemyPOS.gameObject.GetComponent<EnemyHealth>();
+				enemyHealthScript = enemyPOS.gameObject.GetComponent<EnemyHealth>(); 
 				enemyHealthScript.Health -= Damage;
-				myColliderCheckScript.enemyObjects.Remove(enemyPOS);
 				timer = 0;
-				
+			}
+			if (timer < shootDelay && enemyPOS == null)
+			{
+				myColliderCheckScript.enemyObjects.Remove(enemyPOS); // if null then remove from list so there isn't any null enemyPOS
 			}
 
 
-		} else { enemyPOS = null; }
-	
-		
-
-			//Debug.Log(hits[i].collider.gameObject.name);
-			if (enemyPOS != null) { Debug.DrawLine(transform.position, enemyPOS.transform.position);
+		} else { enemyPOS = null;}
+			
+		if (enemyPOS != null) 
+		{ 
+			Debug.DrawLine(transform.position, enemyPOS.transform.position);
 			Vector3 direction = gameObject.transform.up - enemyPOS.transform.position;
 			var target = Quaternion.LookRotation(direction);
 			transform.rotation = target;
-			}
-			
+		}
 
-			
-			
-			
-			
-		
 	}
 	private void OnDrawGizmos()
 	{
 		Gizmos.DrawWireSphere(gameObject.transform.position, Radius);
 	}
 
-	public void shootEnemy()
-	{
-		RaycastHit hit;
-		Vector3 ShootPOS = Gun.transform.position;
-		if (Physics.Raycast(ShootPOS, Gun.transform.forward, out hit, 100f))
-		{
-			Debug.DrawLine(ShootPOS, hit.collider.transform.position, Color.red);
-			Debug.Log(hit.collider.gameObject.tag);
-			
-			
-		}
-	}
 
 	// Update is called once per frame
 	void Update()

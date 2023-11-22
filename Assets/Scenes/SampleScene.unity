@@ -1795,7 +1795,8 @@ MonoBehaviour:
   enemyPOS: {fileID: 0}
   enemyhitPOS: 0
   Radius: 6.59
-  shootDelay: 1
+  shootDelay: 1.07
+  timer: 0
 --- !u!136 &1081596609
 CapsuleCollider:
   m_ObjectHideFlags: 0
