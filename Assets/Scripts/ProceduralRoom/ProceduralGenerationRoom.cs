@@ -17,25 +17,30 @@ public class ProceduralGenerationRoom : MonoBehaviour
     public GameObject Exit;
     public GameObject Join;
     public int numOfRooms;
+    public int nums;
 	// Start is called before the first frame update
 	void Start()
     {
-  //      foreach (GameObject roomObject in objectRoomObjects)
-  //      {
-		//	numOfRooms++;
-		//	Debug.Log(numOfRooms);
-		//	myRoomObjectScript  = roomObject.GetComponent<RoomObject>();
-		//	//myRoomObjectScript.exitPoint.transform.position = myRoomObjectScript.joinPoint.transform.position;
-  //          roomObject.transform.position = objectRoomObjects[numOfRooms].transform.position;
+		foreach (GameObject roomObject in objectRoomObjects)
+		{
+			Debug.Log(objectRoomObjects[objectRoomObjects.Count - 2].name);
+			numOfRooms = objectRoomObjects.Count;
+			myRoomObjectScript = roomObject.GetComponent<RoomObject>();
 			
-		//}
+				Debug.Log(nums);
+				
+				RoomObject myRoomScript2 = objectRoomObjects[objectRoomObjects.Count - 2].gameObject.GetComponent<RoomObject>();
+				
+				myRoomObjectScript.joinPoint.transform.position = myRoomScript2.exitPoint.transform.position;
+			
+		}
 
-        Join.transform.position = Exit.transform.position; // chnage to use int value from a list determining which exit tansform to use // use the exit transform of the precious roomObject
-    }
+		// Join.transform.position = Exit.transform.position; // chnage to use int value from a list determining which exit tansform to use // use the exit transform of the precious roomObject
+	}
 
     // Update is called once per frame
     void Update()
     {
-        
-    }
+	
+	}
 }
