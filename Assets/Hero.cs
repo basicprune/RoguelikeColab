@@ -10,32 +10,27 @@ using UnityEngine.UIElements;
 
 public class Hero : MonoBehaviour
 {
-	public Transform lookReset;
+	[Header("Script References")]
+
 	private EnemyHealth enemyHealthScript;
-	public GameObject Gun;
-	private Collider myCollider;
+	[InspectorName("Collider Check Script")] public colliderCheck myColliderCheckScript;
 
-	public int Damage;
+	[Header("Hero Settings")]
 
-	public colliderCheck myColliderCheckScript;
+	[Tooltip("Damage Per Shot (DPS)")] public int Damage;
+	[Tooltip("Radius, the area your hero can shoot within")] public float Radius;
+	[Tooltip("Delay between Attacks")] public float attackDelay;
+
+	[Tooltip("Enemy Prefab")] public GameObject EnemyObject;
 
 
-	private Transform EnemyTransform;
-
-	public GameObject EnemyObject;
-
-	public GameObject enemyPOS;
-	public float enemyhitPOS;
-
-	public float Radius;
-
+	[HideInInspector] public GameObject enemyPOS;
+	[HideInInspector] public float enemyhitPOS;
 	private bool enterCheck = true;
-
-	public float shootDelay;
-	public float timer;
+	private float timer;
      void Start()
 	 {
-		myCollider = gameObject.GetComponent<Collider>();
+		
 	 }
 	public void FaceEnemy()
 	{
@@ -52,13 +47,13 @@ public class Hero : MonoBehaviour
 			}
 			Debug.Log(enemyPOS);
 
-			if (timer > shootDelay)
+			if (timer > attackDelay)
 			{
 				enemyHealthScript = enemyPOS.gameObject.GetComponent<EnemyHealth>(); 
 				enemyHealthScript.Health -= Damage;
 				timer = 0;
 			}
-			if (timer < shootDelay && enemyPOS == null)
+			if (timer < attackDelay && enemyPOS == null)
 			{
 				myColliderCheckScript.enemyObjects.Remove(enemyPOS); // if null then remove from list so there isn't any null enemyPOS
 			}
@@ -84,9 +79,8 @@ public class Hero : MonoBehaviour
 	// Update is called once per frame
 	void Update()
     {
+		myColliderCheckScript.Radius = Radius;
 		timer += Time.deltaTime;
-		
-		
 		FaceEnemy();
 	}
 }

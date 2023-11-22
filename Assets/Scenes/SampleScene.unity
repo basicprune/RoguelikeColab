@@ -232,6 +232,7 @@ MonoBehaviour:
   enemyHasLeftCollider: 0
   enterCheck: 0
   random: 0
+  Radius: 0
 --- !u!1 &184729559
 GameObject:
   m_ObjectHideFlags: 0
@@ -1787,16 +1788,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 868dc065700153e4997bc790b6334fa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lookReset: {fileID: 1084509114}
-  Gun: {fileID: 648849358}
-  Damage: 25
   myColliderCheckScript: {fileID: 45951915}
-  EnemyObject: {fileID: 0}
+  Damage: 25
+  Radius: 6.59
+  attackDelay: 1.12
+  EnemyObject: {fileID: 1629524880000599456, guid: 3d27be4365695ff4592a75ccf4fa7e37, type: 3}
   enemyPOS: {fileID: 0}
   enemyhitPOS: 0
-  Radius: 6.59
-  shootDelay: 1.07
-  timer: 0
 --- !u!136 &1081596609
 CapsuleCollider:
   m_ObjectHideFlags: 0

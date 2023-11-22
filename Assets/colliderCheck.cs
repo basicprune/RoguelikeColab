@@ -9,6 +9,17 @@ public class colliderCheck : MonoBehaviour
 	public bool enterCheck;
 
 	public int random;
+
+	public float Radius;
+	private SphereCollider myColl;
+	void Start()
+	{
+		myColl = gameObject.GetComponent<SphereCollider>();	
+	}
+	void Update()
+	{
+		myColl.radius = Radius;	
+	}
 	void OnTriggerEnter(Collider other)
 	{
 		if(other.gameObject.tag == "Enemy")
