@@ -12,7 +12,7 @@ public class Hero : MonoBehaviour
 {
 	[Header("Script References")]
 
-	private EnemyHealth enemyHealthScript;
+	private EnemyStats enemyStatsScript;
 	[InspectorName("Collider Check Script")] public colliderCheck myColliderCheckScript;
 
 	[Header("Hero Settings")]
@@ -49,8 +49,8 @@ public class Hero : MonoBehaviour
 
 			if (timer > attackDelay)
 			{
-				enemyHealthScript = enemyPOS.gameObject.GetComponent<EnemyHealth>(); 
-				enemyHealthScript.Health -= Damage;
+				enemyStatsScript = enemyPOS.gameObject.GetComponent<EnemyStats>();
+				enemyStatsScript.health -= Damage;
 				timer = 0;
 			}
 			if (timer < attackDelay && enemyPOS == null)

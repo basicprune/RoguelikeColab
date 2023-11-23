@@ -15,8 +15,7 @@ GameObject:
   - component: {fileID: 1629524880000599458}
   - component: {fileID: 1629524880000599457}
   - component: {fileID: 1629524880000599471}
-  - component: {fileID: 1629524880000599464}
-  - component: {fileID: 3483358276149688468}
+  - component: {fileID: -7641834005764444339}
   m_Layer: 6
   m_Name: Capsule
   m_TagString: Enemy
@@ -67,7 +66,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 300feb50c0dc8ec41b623f21378a8676, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -154,7 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 7013029371202391941, guid: fdf99c5c63aaa7748be12e282631ffa2, type: 3}
---- !u!114 &1629524880000599464
+--- !u!114 &-7641834005764444339
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -163,20 +162,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1629524880000599456}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e385a53814719804e94f58d8b3a116b3, type: 3}
+  m_Script: {fileID: 11500000, guid: 043de0b77355c9d41ad7360d49567741, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 50
---- !u!114 &3483358276149688468
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1629524880000599456}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c84a110c3a609cf46b106bc084339bd3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  strength: 250
+  spawner: {fileID: 0}
+  strength: 25
+  health: 50

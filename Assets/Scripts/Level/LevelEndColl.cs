@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class LevelEndColl : MonoBehaviour
 {
-	private EnemyStrength myEnemyStrengthScript;
+	private EnemyStats enemyStatsScript;
 	public LevelHealth health;
+	public Spawner spawner;
 	// Start is called before the first frame update
 
 
@@ -14,9 +15,10 @@ public class LevelEndColl : MonoBehaviour
 		Debug.Log(other.tag);
 		if (other.gameObject.tag == "Enemy")
 		{
-			myEnemyStrengthScript = other.gameObject.GetComponent<EnemyStrength>();
-			health.levelHealth -= myEnemyStrengthScript.strength;
+			enemyStatsScript = other.gameObject.GetComponent<EnemyStats>();
+			health.levelHealth -= enemyStatsScript.strength;
 			Destroy(other.gameObject);
+			spawner.enemies.Remove(other.gameObject);
 		}
 		// myEnemyStrengthScript = null;
 	}
