@@ -1,18 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Currency : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	public Text playerBalance;
+	public float playerCurrency;
+	void Update()
+	{
+		playerBalance.text = "$" + playerCurrency.ToString();
+	}
 }

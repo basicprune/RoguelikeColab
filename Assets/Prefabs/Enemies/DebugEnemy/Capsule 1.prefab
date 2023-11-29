@@ -168,3 +168,5 @@ MonoBehaviour:
   spawner: {fileID: 0}
   strength: 50
   health: 150
+  CurrencyPerKill: 500
+  currencyScript: {fileID: 0}
