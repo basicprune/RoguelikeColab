@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.EventSystems;
+using System;
 
 public class StoreManager : MonoBehaviour
 {
@@ -18,13 +19,16 @@ public class StoreManager : MonoBehaviour
     public TMP_Text itemCost;
     public Color canAffordColour;
     public Color cannotAffordColour;
-
+    public GameObject storePage;
 
     [SerializeField] private GraphicRaycaster raycaster;
     [SerializeField] private EventSystem m_eventSystem;
 
+    public List<float> list1 = new List<float>();
+
     void Start()
     {
+        storePage.SetActive(false);
         noItemSelected.SetActive(true);
         itemSelected.SetActive(false);
     }
@@ -32,7 +36,7 @@ public class StoreManager : MonoBehaviour
     void Update()
     {
         CheckMouseOverStore();
-
+        
     }
 
     private void CheckMouseOverStore()
@@ -78,5 +82,12 @@ public class StoreManager : MonoBehaviour
         //get item cost and compare to players money inventory
 
         //change cost colour based on whether player can afford or not
+    }
+
+    public void OpenStorePage(/*float currentPlayerMoney*/)
+    {
+        playerMoney.text = FindObjectOfType<Currency>().playerCurrency.ToString();
+        Time.timeScale = 0f;
+        storePage.SetActive(true);
     }
 }
